@@ -1,0 +1,41 @@
+<html>
+<head>
+	
+	<title>Guessing Game!</title>
+	<script src="/static/jquery.js"></script>
+	<link rel="stylesheet" href="/static/bootstrap.min.css"
+
+</head>
+<body>
+
+	<h1>Guessing Game!</h1>
+
+	<form id="guessing-game" > <!--action="/result"-->
+
+		Guess a number between 0 and 100:  
+		<input type="text" id="guess" name="guess">
+		<button type="button" id="guess-submit">Guess!</button>
+	
+	</form>
+
+	<div id="hint"></div>
+
+	<script>
+
+		$("#guess-submit").on('click', function(event){
+
+			event.preventDefault();
+
+			console.log("I'm running!");
+
+			var url = "/result?" + $("#guessing-game").serialize();
+
+			console.log(url);
+
+			$("#hint").load(url);
+		});
+
+	</script>
+
+</body>
+</html>
